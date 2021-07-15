@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from gurobipy import Model, GRB, quicksum
 
 rnd = np.random
 rnd.seed(0)
@@ -20,7 +21,7 @@ c = {(i, j): np.hypot(xc[i] - xc[j], yc[i] - yc[j]) for i, j in A}  # Distance
 Q = 20  # vehicle capacity
 q = {i: rnd.randint(1, 10) for i in N}  # Demand from each customer
 
-from gurobipy import Model, GRB, quicksum
+
 mdl = Model('CVRP')
 x = mdl.addVars(A, vtype=GRB.BINARY)  # Decision variable for whether an edge should be chosen.
 u = mdl.addVars(N, vtype=GRB.CONTINUOUS)  # load of vehicle before it leaves the node
