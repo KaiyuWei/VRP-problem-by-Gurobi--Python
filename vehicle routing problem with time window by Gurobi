@@ -6,7 +6,7 @@ import math
 import matplotlib.pyplot as plt
 
 # Read data
-data0 = pd.read_csv("Seenons - OE Assignment Data.tsv", delimiter="\t")
+data0 = pd.read_csv("Data.tsv", delimiter="\t")
 
 # Set nodes
 xc = np.array(data0['lon'])  # x-coordinate of clients
